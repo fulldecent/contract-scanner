@@ -56,14 +56,17 @@ jobs:
           mkdir -p dist
           yarn pack --out dist/contract-scanner.tgz
 
+      # Fork pull requests cannot write attestations. Skip the step there so the tarball still uploads.
       - name: Attest the build
         id: attest
+        if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
         uses: actions/attest@v4
         with:
           subject-path: dist/*
 
       # After attesting, so the bundle is not one of its own subjects.
       - name: Add the attestation to the build
+        if: steps.attest.outcome == 'success'
         env:
           BUNDLE: ${{ steps.attest.outputs.bundle-path }}
         run: cp "$BUNDLE" dist/attestation.sigstore.json

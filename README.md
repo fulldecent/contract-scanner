@@ -23,7 +23,7 @@ yarn install
 Run the script with:
 
 ```sh
-node index.mjs
+yarn node index.mjs
 ```
 
 Now your results are in database.db. You can browse this with:
@@ -34,4 +34,4 @@ sqlite3 database.db 'SELECT * FROM contracts LIMIT 10'
 
 ## References
 
-1. This project is built based on [best practices documented in node.js-template](https://github.com/fulldecent/node.js-template), release v1.2.2. [build-test.yml](.github/workflows/build-test.yml) packs `contract-scanner.tgz` instead of the template's `simple-rpn-calculator.tgz`. The release workflow is omitted. This repository is not published to npm. `better-sqlite3` is `^12.6.2` because 7.6.2 does not compile on Node 24.
+1. This project is built based on [best practices documented in node.js-template](https://github.com/fulldecent/node.js-template), release v1.2.2. [build-test.yml](.github/workflows/build-test.yml) packs `contract-scanner.tgz` instead of the template's `simple-rpn-calculator.tgz`. The release workflow is omitted. This repository is not published to npm. `better-sqlite3` is `^12.6.2` because 7.6.2 does not compile on Node 24. Run the scanner with `yarn node` because Yarn Plug'n'Play has no `node_modules` directory. Attestation runs only when the head repository is this repository, so a fork pull request can still upload the packed tarball.
