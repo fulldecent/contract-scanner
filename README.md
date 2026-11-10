@@ -6,10 +6,10 @@ Scanning is performed by finding `Transfer` events.
 
 ## Setup
 
-Use Node version 24. The version is in [`.node-version`](.node-version). If using `nvm`, try:
+Use Node version 24. The version is in [`.node-version`](.node-version). `nvm use` reads `.nvmrc`, not that file. With nvm, run:
 
 ```sh
-nvm use
+nvm use "$(cat .node-version)"
 ```
 
 Then install package dependencies. With `yarn` that is:
