@@ -1,6 +1,18 @@
 {
+  "name": "contract-scanner",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Find all ERC-721 NFT contracts on an EVM blockchain.",
+  "license": "MIT",
+  "packageManager": "yarn@4.18.0",
+  "engines": {
+    "node": ">=24"
+  },
   "dependencies": {
-    "better-sqlite3": "^7.6.2",
+    "better-sqlite3": "^12.6.2",
     "ethers": "^5.7.2"
+  },
+  "scripts": {
+    "test": "node --test"
   }
 }
